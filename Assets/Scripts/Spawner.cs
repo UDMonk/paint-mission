@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-    public float SpawnTime = 100;
+    public float SpawnTime = 40;
     private float currentTime = 0;
     public GameObject ToBeSpawned;
     public Transform SpawnPoint;
