@@ -37,7 +37,7 @@ public class NormalProjectile : BaseProjectile
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<Enemy>().currentHealth -= m_damage;
+            //other.gameObject.GetComponent<Enemy>().currentHealth -= m_damage;
             //DamageData dmgData = new DamageData();
             //dmgData.damage = m_damage;
 
@@ -49,7 +49,11 @@ public class NormalProjectile : BaseProjectile
             //}
         }
 
-        if (other.gameObject.GetComponent<BaseProjectile>() == null)
-            Destroy(gameObject);
+        if (!other.gameObject.tag.Contains("turret"))
+        {
+            if (other.gameObject.GetComponent<BaseProjectile>() == null)
+                Destroy(gameObject);
+        }
+        
     }
 }

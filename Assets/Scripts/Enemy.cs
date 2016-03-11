@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour {
         Player.EnemiesKilled++;
         Player.PlayerGold += BountyAmount;
         Player.PlayerScore += BountyAmount;
+        Destroy(this.gameObject);
     }
 
     public void EnemyGoal()
