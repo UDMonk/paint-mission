@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour {
 
     public void EnemyKilled()
     {
+        gameObject.
         if(EnemyHasKill != null)
             EnemyHasKill(BountyAmount);
     }

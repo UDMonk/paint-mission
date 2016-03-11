@@ -35,7 +35,7 @@ public class NormalProjectile : BaseProjectile
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject == m_target)
+        if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<Enemy>().currentHealth -= m_damage;
             //DamageData dmgData = new DamageData();
