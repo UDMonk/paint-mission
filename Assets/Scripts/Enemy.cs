@@ -46,6 +46,9 @@ public class Enemy : MonoBehaviour {
     public void EnemyGoal()
     {
         if(EnemyHasReachedGoal != null)
+        {
             EnemyHasReachedGoal(GoalDamage);
+            Debug.Log("...Work?");
+        }
     }
 }

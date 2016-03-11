@@ -5,22 +5,26 @@ using System;
 public class EventManager : MonoBehaviour
 {
     public GameObject baseEnemy; //listen for events triggered in enemy classes
+    public Enemy enemyScript;
     public event EnemyKilledEventHandler EnemyKilled;
     public event TowerCollideEventHandler EnemyReachedGoal;
+
 
     // Use this for initialization
     void Start ()
     {
-        baseEnemy.GetComponent<Enemy>().EnemyHasKill += new EnemyKilledEventHandler(EventManager_EnemyHasKill);
-        baseEnemy.GetComponent<Enemy>().EnemyHasReachedGoal += new TowerCollideEventHandler (EventManager_EnemyHasReachedGoal);
+        enemyScript.EnemyHasKill += EnemyHasKill;
+        
+        enemyScript.EnemyHasReachedGoal += EnemyHasReachedGoal;
     }
 
-    private void EventManager_EnemyHasReachedGoal(float damage)
+    private void EnemyHasReachedGoal(float damage)
     {
+        Debug.Log("It... it works!?");
         EnemyReachedGoal(damage);
     }
 
-    private void EventManager_EnemyHasKill(float bounty)
+    private void EnemyHasKill(float bounty)
     {
         EnemyKilled(bounty);
     }

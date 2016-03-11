@@ -54,11 +54,12 @@ public class WaveController : MonoBehaviour {
         monSpawnDelay = 0;
 
         //catch events here:
-        gameObject.GetComponent<EventManager>().EnemyKilled += new EnemyKilledEventHandler (EventManager_EnemyKilled);
+        gameObject.GetComponent<EventManager>().EnemyKilled += EventManager_EnemyKilled;
     }
 
     private void EventManager_EnemyKilled(float bounty)
     {
+        Debug.Log("Haha! Fuck you it works!");
         currentEnemies -= 1;
         enemiesRemaining -= 1;
     }
