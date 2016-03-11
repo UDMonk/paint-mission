@@ -61,7 +61,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 100.0f))
                     {
                         if (hit.collider.tag == "spawnEnabled")
-                            Instantiate(BulletTurret, hit.point, Quaternion.identity);
+                            Instantiate(BulletTurret, hit.point += new Vector3(0,.6f,0), Quaternion.identity);
                     }
                     PlayerScript.PlayerGold -= 50;
                 }
@@ -76,7 +76,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 100.0f))
                     {
                         if (hit.collider.tag == "spawnEnabled")
-                            Instantiate(FireTurret, hit.point, Quaternion.identity);
+                            Instantiate(FireTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
                     PlayerScript.PlayerGold -= 150;
                 }
@@ -91,7 +91,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 100.0f))
                     {
                         if (hit.collider.tag == "spawnEnabled")
-                            Instantiate(IceTurret, hit.point, Quaternion.identity);
+                            Instantiate(IceTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
                     PlayerScript.PlayerGold -= 150;
                 }
@@ -106,7 +106,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 100.0f))
                     {
                         if (hit.collider.tag == "spawnEnabled")
-                            Instantiate(AcidTurret, hit.point, Quaternion.identity);
+                            Instantiate(AcidTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
                     PlayerScript.PlayerGold -= 255;
                 }
@@ -121,7 +121,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 100.0f))
                     {
                         if (hit.collider.tag == "spawnEnabled")
-                            Instantiate(CriticalTurret, hit.point, Quaternion.identity);
+                            Instantiate(CriticalTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
                     PlayerScript.PlayerGold -= 300;
                 }
