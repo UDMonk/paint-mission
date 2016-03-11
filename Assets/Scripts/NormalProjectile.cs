@@ -37,15 +37,16 @@ public class NormalProjectile : BaseProjectile
     {
         if (other.gameObject == m_target)
         {
-            DamageData dmgData = new DamageData();
-            dmgData.damage = m_damage;
+            other.gameObject.GetComponent<Enemy>().currentHealth -= m_damage;
+            //DamageData dmgData = new DamageData();
+            //dmgData.damage = m_damage;
 
-            MessageHandler msgHandler = m_target.GetComponent<MessageHandler>();
+            //MessageHandler msgHandler = m_target.GetComponent<MessageHandler>();
 
-            if (msgHandler)
-            {
-                msgHandler.GiveMessage(MessageType.DAMAGED, m_launcher, dmgData);
-            }
+            //if (msgHandler)
+            //{
+            //    msgHandler.GiveMessage(MessageType.DAMAGED, m_launcher, dmgData);
+            //}
         }
 
         if (other.gameObject.GetComponent<BaseProjectile>() == null)

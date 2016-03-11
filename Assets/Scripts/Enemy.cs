@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour {
 
     public float GoalDamage;
     public float BountyAmount;
-    float currentHealth { get; set; }
+    public float currentHealth { get; set; }
     public float MaxHealth;
 
     public EnemyType Type;
