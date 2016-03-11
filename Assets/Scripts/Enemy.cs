@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour {
         if(collision.gameObject.tag.ToLower().Contains("bullet"))
         {
             //Everyone's too busy to help so i'll have to make all bullets do the same amount of damage
+            Debug.Log("I smacked the gobber in the face");
             currentHealth -= 10;
             GameObject.Destroy(collision.gameObject);
         }
