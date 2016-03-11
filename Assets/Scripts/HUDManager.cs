@@ -22,9 +22,9 @@ public class HUDManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        healthText.text = string.Format("Tower Health: {0}", tower.GetComponent<Tower>().towerHealth);
-        goldText.text = string.Format("Gold :", player.GetComponent<Player>().PlayerGold);
-        scoreText.text = string.Format("Score :", player.GetComponent<Player>().PlayerScore);
+        healthText.text = string.Format("Tower Health: {0}",Tower.Health);
+        goldText.text = string.Format("Gold :", Player.PlayerGold);
+        scoreText.text = string.Format("Score :", Player.PlayerScore);
     }
 	
 	// Update is called once per frame
@@ -54,8 +54,8 @@ public class HUDManager : MonoBehaviour {
             TurretSelected.text = sel5;
         }
 
-        healthText.text = string.Format("Tower Health: {0}", tower.GetComponent<Tower>().towerHealth);
-        goldText.text = string.Format("Gold: {0}", player.GetComponent<Player>().PlayerGold);
-        scoreText.text = string.Format("Score: {0}", player.GetComponent<Player>().PlayerScore);
+        healthText.text = string.Format("Tower Health: {0}", Tower.Health);
+        goldText.text = string.Format("Gold: {0}", Player.PlayerGold);
+        scoreText.text = string.Format("Score: {0}", Player.PlayerScore);
     }
 }

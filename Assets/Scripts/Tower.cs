@@ -3,22 +3,27 @@ using System.Collections;
 
 public class Tower : MonoBehaviour
 {
-    public float towerHealth;
+    public static float Health = 1000;
     public GameObject GameController;
 
-    // Use this for initialization
     void Start () {
-        towerHealth = 1000;
-        GameController.GetComponent<EventManager>().EnemyReachedGoal += Tower_EnemyReachedGoal;
+        //GameController.GetComponent<EventManager>().EnemyReachedGoal += Tower_EnemyReachedGoal;
     }
 
-    private void Tower_EnemyReachedGoal(float damage)
+   void OnCollisionEnter(Collision collision)
     {
-        towerHealth -= damage;
-    }
+        if(collision.gameObject.tag.Contains("enemy"))
+        {
+            var enemyComp = collision.gameObject.GetComponent<Enemy>();
+            if(enemyComp != null)
+            {
+                Health -= enemyComp.GoalDamage;
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
+                Player.PlayerGold += enemyComp.BountyAmount;
+                Player.EnemiesKilled++;
+
+                GameObject.Destroy(collision.gameObject);
+            }
+        }
+    }
 }

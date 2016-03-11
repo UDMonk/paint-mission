@@ -2,25 +2,27 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-    //float timer = 50;
+    public float SpawnTime = 100;
+    private float currentTime = 0;
     public GameObject ToBeSpawned;
     public Transform SpawnPoint;
-
+     
     // Use this for initialization
     void Start () {
-	
+        currentTime = SpawnTime;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //timer -= Time.deltaTime;
-        //if (timer == 0 || timer < 0)
-        //{
-        //    Debug.Log("Timer reached 0");
-        //    SpawnAsset();
-        //    timer = 10;
-        //}
+        currentTime -= Time.deltaTime;
+
+        if (currentTime <= 0)
+        {
+            Debug.Log("Enemy Spawned");
+            SpawnAsset();
+            currentTime = SpawnTime ;
+        }
     }
 
     public void SpawnAsset()

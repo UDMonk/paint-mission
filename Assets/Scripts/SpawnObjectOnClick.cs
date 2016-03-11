@@ -53,7 +53,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
         {
             if(selectedTurret == 1)
             {
-                if (PlayerScript.PlayerGold >= 50)
+                if (Player.PlayerGold >= 50)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -63,12 +63,12 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(BulletTurret, hit.point += new Vector3(0,.6f,0), Quaternion.identity);
                     }
-                    PlayerScript.PlayerGold -= 50;
+                    Player.PlayerGold -= 50;
                 }
             }
             if (selectedTurret == 2)
             {
-                if (PlayerScript.PlayerGold >= 150)
+                if (Player.PlayerGold >= 150)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -78,12 +78,12 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(FireTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
-                    PlayerScript.PlayerGold -= 150;
+                    Player.PlayerGold -= 150;
                 }
             }
             if (selectedTurret == 3)
             {
-                if (PlayerScript.PlayerGold >= 150)
+                if (Player.PlayerGold >= 150)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -93,12 +93,12 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(IceTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
-                    PlayerScript.PlayerGold -= 150;
+                    Player.PlayerGold -= 150;
                 }
             }
             if (selectedTurret == 4)
             {
-                if (PlayerScript.PlayerGold >= 255)
+                if (Player.PlayerGold >= 255)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -108,12 +108,12 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(AcidTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
-                    PlayerScript.PlayerGold -= 255;
+                    Player.PlayerGold -= 255;
                 }
             }
             if (selectedTurret == 5)
             {
-                if (PlayerScript.PlayerGold >= 300)
+                if (Player.PlayerGold >= 300)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -123,7 +123,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(CriticalTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
-                    PlayerScript.PlayerGold -= 300;
+                    Player.PlayerGold -= 300;
                 }
             }
 

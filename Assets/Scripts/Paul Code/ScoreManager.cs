@@ -8,9 +8,9 @@ public class ScoreManager : MonoBehaviour {
 
     public Text goldText;
     public Text killsText;
-    
+
     public float killsCount;
-    //public float goldCount;
+    public float goldCount;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +20,8 @@ public class ScoreManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //goldCount += 5 * Time.deltaTime;
+        goldCount += 5 * Time.deltaTime;
 
-        //goldText.text = "Gold : " + Math.Round (goldCount);
+        goldText.text = "Gold : " + Math.Round (goldCount);
 	}
 }
