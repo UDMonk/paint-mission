@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour {
     public event EnemyKilledEventHandler EnemyHasKill;
     public event TowerCollideEventHandler EnemyHasReachedGoal;
 
-    public float GoalDamage;
-    public float BountyAmount;
-    public float currentHealth { get; set; }
-    public float MaxHealth;
+    public float GoalDamage =10;
+    public float BountyAmount =50;
+    public float currentHealth = 100;
+    public float MaxHealth =100;
 
     public EnemyType Type;
 
@@ -39,9 +39,11 @@ public class Enemy : MonoBehaviour {
 
     public void EnemyKilled()
     {
-        gameObject.
+        //does this work? if not uncomment the line I added below it.
         if(EnemyHasKill != null)
             EnemyHasKill(BountyAmount);
+
+        //Player.PlayerGold += BountyAmount;
     }
 
     public void EnemyGoal()
@@ -50,6 +52,16 @@ public class Enemy : MonoBehaviour {
         {
             EnemyHasReachedGoal(GoalDamage);
             Debug.Log("...Work?");
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag.ToLower().Contains("bullet"))
+        {
+            //no bullet script to get damage value from?
+            currentHealth -= 10;
+            GameObject.Destroy(collision.gameObject);
         }
     }
 }
