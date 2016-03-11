@@ -4,7 +4,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
-	[RequireComponent(typeof(Animator))]
+	//[RequireComponent(typeof(Animator))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
 		Rigidbody m_Rigidbody;
-		Animator m_Animator;
+		//Animator m_Animator;
 		bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
@@ -32,7 +32,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void Start()
 		{
-			m_Animator = GetComponent<Animator>();
+			//m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
 			m_CapsuleHeight = m_Capsule.height;
@@ -118,38 +118,38 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetBool("Crouch", m_Crouching);
-			m_Animator.SetBool("OnGround", m_IsGrounded);
-			if (!m_IsGrounded)
-			{
-				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
-			}
+			//m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+			//m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+			//m_Animator.SetBool("Crouch", m_Crouching);
+			//m_Animator.SetBool("OnGround", m_IsGrounded);
+			//if (!m_IsGrounded)
+			//{
+			//	m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+			//}
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
 			// (This code is reliant on the specific run cycle offset in our animations,
 			// and assumes one leg passes the other at the normalized clip times of 0.0 and 0.5)
-			float runCycle =
-				Mathf.Repeat(
-					m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
-			float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
-			if (m_IsGrounded)
-			{
-				m_Animator.SetFloat("JumpLeg", jumpLeg);
-			}
+			//float runCycle =
+			//	Mathf.Repeat(
+			//		m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
+			//float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+			//if (m_IsGrounded)
+			//{
+			//	m_Animator.SetFloat("JumpLeg", jumpLeg);
+			//}
 
-			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
-			// which affects the movement speed because of the root motion.
-			if (m_IsGrounded && move.magnitude > 0)
-			{
-				m_Animator.speed = m_AnimSpeedMultiplier;
-			}
-			else
-			{
-				// don't use that while airborne
-				m_Animator.speed = 1;
-			}
+			//// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
+			//// which affects the movement speed because of the root motion.
+			//if (m_IsGrounded && move.magnitude > 0)
+			//{
+			//	m_Animator.speed = m_AnimSpeedMultiplier;
+			//}
+			//else
+			//{
+			//	// don't use that while airborne
+			//	m_Animator.speed = 1;
+			//}
 		}
 
 
@@ -166,14 +166,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
-			{
-				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
-				m_Animator.applyRootMotion = false;
-				m_GroundCheckDistance = 0.1f;
-			}
+			//if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+			//{
+			//	// jump!
+			//	m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+			//	m_IsGrounded = false;
+			//	m_Animator.applyRootMotion = false;
+			//	m_GroundCheckDistance = 0.1f;
+			//}
 		}
 
 		void ApplyExtraTurnRotation()
@@ -190,11 +190,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// this allows us to modify the positional speed before it's applied.
 			if (m_IsGrounded && Time.deltaTime > 0)
 			{
-				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+				//Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
-				m_Rigidbody.velocity = v;
+				//// we preserve the existing y part of the current velocity.
+				//v.y = m_Rigidbody.velocity.y;
+				//m_Rigidbody.velocity = v;
 			}
 		}
 
@@ -212,13 +212,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
-				m_Animator.applyRootMotion = true;
+				//m_Animator.applyRootMotion = true;
 			}
 			else
 			{
 				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
-				m_Animator.applyRootMotion = false;
+				//m_Animator.applyRootMotion = false;
 			}
 		}
 	}

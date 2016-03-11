@@ -4,6 +4,7 @@ using System.Collections;
 public class SpawnObjectOnClick : MonoBehaviour {
 
     public GameObject ToBeSpawned;
+    public Player PlayerScript;
 
     // Use this for initialization
     void Start () {
@@ -15,14 +16,19 @@ public class SpawnObjectOnClick : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray;
-            RaycastHit hit;
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            if(PlayerScript.PlayerGold >= 100)
             {
-                if (hit.collider.tag == "spawnuponable")
-                    Instantiate(ToBeSpawned, hit.point, Quaternion.identity);
+                Ray ray;
+                RaycastHit hit;
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 100.0f))
+                {
+                    if (hit.collider.tag == "spawnuponable")
+                        Instantiate(ToBeSpawned, hit.point, Quaternion.identity);
+                }
+                PlayerScript.PlayerGold -= 100;
             }
+            
         }
     }
 }

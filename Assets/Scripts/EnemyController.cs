@@ -15,9 +15,8 @@ public class EnemyController : MonoBehaviour {
     {
         if(other.gameObject.tag == "tower")
         {
-            Debug.Log("I work!");
             //damage is handled in tower, just despawn
-            Destroy(this.gameObject, .5f);
+            Destroy(this.gameObject, .1f);
         }
     }
 

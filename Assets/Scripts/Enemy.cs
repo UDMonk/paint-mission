@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public enum EnemyType { Goblin, Orc, Boss }
 
@@ -14,16 +15,16 @@ public class Enemy : MonoBehaviour {
     public float BountyAmount;
     float currentHealth { get; set; }
     public float MaxHealth;
-    public float RunSpeed;
 
     public EnemyType Type;
 
-    public Transform pointA;
-    public Transform pointB;
+    //public Transform pointA;
+    //public Transform pointB;
 
     // Use this for initialization
     void Start ()
     {
+        currentHealth = MaxHealth;
 
 	}
 	
@@ -36,8 +37,15 @@ public class Enemy : MonoBehaviour {
             }
 	}
 
-    void EnemyKilled()
+    public void EnemyKilled()
     {
-        EnemyHasKill(BountyAmount);
+        if(EnemyHasKill != null)
+            EnemyHasKill(BountyAmount);
+    }
+
+    public void EnemyGoal()
+    {
+        if(EnemyHasReachedGoal != null)
+            EnemyHasReachedGoal(GoalDamage);
     }
 }

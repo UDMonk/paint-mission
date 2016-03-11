@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-    float timer = 10;
+    //float timer = 50;
     public GameObject ToBeSpawned;
     public Transform SpawnPoint;
 
@@ -14,13 +14,13 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        timer -= Time.deltaTime;
-        if (timer == 0 || timer < 0)
-        {
-            Debug.Log("Timer reached 0");
-            SpawnAsset();
-            timer = 1;
-        }
+        //timer -= Time.deltaTime;
+        //if (timer == 0 || timer < 0)
+        //{
+        //    Debug.Log("Timer reached 0");
+        //    SpawnAsset();
+        //    timer = 10;
+        //}
     }
 
     public void SpawnAsset()
