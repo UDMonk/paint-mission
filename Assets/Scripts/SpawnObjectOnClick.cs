@@ -98,7 +98,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
             }
             if (selectedTurret == 4)
             {
-                if (Player.PlayerGold >= 255)
+                if (Player.PlayerGold >= 225)
                 {
                     Ray ray;
                     RaycastHit hit;
@@ -108,7 +108,7 @@ public class SpawnObjectOnClick : MonoBehaviour {
                         if (hit.collider.tag == "spawnEnabled")
                             Instantiate(AcidTurret, hit.point += new Vector3(0, .6f, 0), Quaternion.identity);
                     }
-                    Player.PlayerGold -= 255;
+                    Player.PlayerGold -= 225;
                 }
             }
             if (selectedTurret == 5)

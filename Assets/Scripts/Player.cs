@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 
     private void eventManager_EnemyKilled(float bounty)
     {
+        //This doesn't work. Ain't that nice? luckily those values up top are public static for easy access now
         PlayerGold += bounty;
         PlayerScore += bounty;
     }
