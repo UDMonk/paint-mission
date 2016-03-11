@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Tower : MonoBehaviour
 {
-    float towerHealth;
+    public float towerHealth;
     public GameObject GameController;
 
     // Use this for initialization
