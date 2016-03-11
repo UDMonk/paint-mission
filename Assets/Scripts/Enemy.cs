@@ -39,11 +39,12 @@ public class Enemy : MonoBehaviour {
 
     public void EnemyKilled()
     {
-        //does this work? if not uncomment the line I added below it.
+        //This doesn't work, line below it is doing its job
         if(EnemyHasKill != null)
             EnemyHasKill(BountyAmount);
-
-        //Player.PlayerGold += BountyAmount;
+        Player.EnemiesKilled++;
+        Player.PlayerGold += BountyAmount;
+        Player.PlayerScore += BountyAmount;
     }
 
     public void EnemyGoal()
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour {
     {
         if(collision.gameObject.tag.ToLower().Contains("bullet"))
         {
-            //no bullet script to get damage value from?
+            //Everyone's too busy to help so i'll have to make all bullets do the same amount of damage
             currentHealth -= 10;
             GameObject.Destroy(collision.gameObject);
         }
